@@ -1,0 +1,14 @@
+# Eclipse
+.settings/
+.project
+.classpath
+.jsdtscope
+*.launch
+
+# ビルド生成物
+target/
+bin/
+build/
+
+# Mac
+.DS_Store
