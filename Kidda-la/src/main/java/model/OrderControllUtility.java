@@ -6,7 +6,6 @@ import java.util.Objects;
 
 /**
  * 注文管理用ユーティリティ
- * 
  */
 public class OrderControllUtility {
 

@@ -1,7 +1,7 @@
 package model;
 
 /**
- * 注文明細情報を保持するモデルクラス。　
+ * 注文明細情報を保持するモデルクラス　
  */
 public class OrderDetail {
 	// 注文ID

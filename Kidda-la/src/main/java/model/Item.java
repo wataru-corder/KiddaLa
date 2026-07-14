@@ -1,7 +1,7 @@
 package model;
 
 /**
- * 商品情報を保持するモデルクラスです。
+ * 商品情報を保持するモデルクラス
  */
 public class Item {
 	// 商品ID

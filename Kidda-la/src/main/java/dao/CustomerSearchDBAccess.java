@@ -12,7 +12,7 @@ import model.Customer;
 public class CustomerSearchDBAccess {
 
 	/**
-	 * データベースと接続をします。
+	 * データベースと接続をする。
 	 * @throws Exception
 	 */
 	private Connection createConnection() throws Exception {
@@ -25,7 +25,7 @@ public class CustomerSearchDBAccess {
 	}
 
 	/**
-	 * データベースと切断します。
+	 * データベースと切断する。
 	 * @throws Exception
 	 */
 	private void closeConnection(Connection con) throws Exception {
@@ -33,7 +33,7 @@ public class CustomerSearchDBAccess {
 	}
 
 	/**
-	 * 電話番号と検索結果が一致する顧客情報を返します。
+	 * 電話番号と検索結果が一致する顧客情報を返す。
 	 * @param tel 電話番号
 	 * @return cutomer 顧客情報
 	 * @throws Exception
@@ -65,7 +65,7 @@ public class CustomerSearchDBAccess {
 	}
 
 	/**
-	 * カナを含む検索結果が一致する顧客情報を返します。
+	 * カナを含む検索結果が一致する顧客情報を返す。
 	 * @param kana
 	 * @return
 	 * @throws Exception
@@ -98,7 +98,7 @@ public class CustomerSearchDBAccess {
 	}
 
 	/**
-	 * 電話番号と一致かつカナを含む検索結果が一致する顧客情報を返します。
+	 * 電話番号と一致かつカナを含む検索結果が一致する顧客情報を返す。
 	 * @param tel
 	 * @param kana
 	 * @return

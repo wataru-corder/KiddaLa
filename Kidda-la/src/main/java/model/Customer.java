@@ -1,7 +1,7 @@
 package model;
 
 /**
- *  顧客情報を保持するモデルクラスです。
+ *  顧客情報を保持するモデルクラス
  */
 public class Customer {
 	// 顧客ID
