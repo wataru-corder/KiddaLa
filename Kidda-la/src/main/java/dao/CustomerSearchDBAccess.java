@@ -10,19 +10,6 @@ import java.util.List;
 import model.Customer;
 
 public class CustomerSearchDBAccess {
-	public static void main(String[] args) {
-		try {
-			CustomerSearchDBAccess dao = new CustomerSearchDBAccess();
-//			List<Customer> list = dao.searchCustomerByTel("0314142135");
-			List<Customer> list = dao.searchCustomer("0314142135", "");
-			System.out.println(list.size());
-			for (Customer c : list) {
-				System.out.println(c.getCustId() + c.getCustName());
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 	/**
 	 * データベースと接続をします。
@@ -77,6 +64,46 @@ public class CustomerSearchDBAccess {
 		return list;
 	}
 
+	/**
+	 * カナを含む検索結果が一致する顧客情報を返します。
+	 * @param kana
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Customer> searchCustomerByKana(String kana) throws Exception {
+		List<Customer> list = new ArrayList<>();
+		Connection con = createConnection();
+		String query = """
+				SELECT CUSTID, CUSTNAME, KANA, TEL, ADDRESS
+				FROM CUSTOMER
+				WHERE KANA = ?
+				""";
+		try {
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setString(1, kana);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Customer customer = new Customer();
+				customer.setCustId(rs.getInt("CUSTID"));
+				customer.setCustName(rs.getString("CUSTNAME"));
+				customer.setKana(rs.getString("KANA"));
+				customer.setTel(rs.getString("TEL"));
+				customer.setAddress(rs.getString("ADDRESS"));
+				list.add(customer);
+			}
+		} finally {
+			closeConnection(con);
+		}
+		return list;
+	}
+
+	/**
+	 * 電話番号と一致かつカナを含む検索結果が一致する顧客情報を返します。
+	 * @param tel
+	 * @param kana
+	 * @return
+	 * @throws Exception
+	 */
 	public List<Customer> searchCustomer(String tel, String kana) throws Exception {
 		List<Customer> list = new ArrayList<>();
 		Connection con = createConnection();
