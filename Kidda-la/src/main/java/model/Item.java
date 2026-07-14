@@ -11,6 +11,16 @@ public class Item {
 	// 値段
 	private int price;
 
+	public Item() {
+
+	}
+
+	public Item(int itemId, String itemName, int price) {
+		this.itemId = itemId;
+		this.itemName = itemName;
+		this.price = price;
+	}
+
 	public int getItemId() {
 		return itemId;
 	}
