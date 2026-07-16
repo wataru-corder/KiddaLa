@@ -4,7 +4,7 @@ import java.util.List;
 
 import dao.CustomerSearchDBAccess;
 import model.Customer;
-import model.OrderControllUtility;
+import model.OrderControlUtility;
 
 /**
  *  顧客検索用のアクションクラス
@@ -31,7 +31,7 @@ public class CustomerSearchAction {
 			list = dao.searchCustomer(data[0], data[1]);
 		}
 
-		String[][] tableData = OrderControllUtility.customerToArray(list);
+		String[][] tableData = OrderControlUtility.customerToArray(list);
 		return tableData;
 	}
 }
