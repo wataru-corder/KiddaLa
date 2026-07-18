@@ -64,6 +64,7 @@ public class CustomerSearchDBAccessTest {
 		// 項番2.6:tel
 		assertEquals("09012345678", c.getTel());
 	}
+	
 	@Test
 	void カナ検索でnullを渡しても例外は発生せず空のリストが返る() {
 		// 項番2.7:例外が発生せず空リストで返却されること
