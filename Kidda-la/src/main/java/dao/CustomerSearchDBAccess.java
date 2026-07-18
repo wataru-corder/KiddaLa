@@ -42,7 +42,7 @@ public class CustomerSearchDBAccess {
 		List<Customer> list = new ArrayList<>();
 		Connection con = createConnection();
 		String query = """
-				SELECT CUSTID, CUSTNAME, KANA, ADDRESS
+				SELECT CUSTID, CUSTNAME, KANA, ADDRESS, TEL
 				FROM CUSTOMER
 				WHERE TEL = ?
 				""";
@@ -56,6 +56,7 @@ public class CustomerSearchDBAccess {
 				customer.setCustName(rs.getString("CUSTNAME"));
 				customer.setKana(rs.getString("KANA"));
 				customer.setAddress(rs.getString("ADDRESS"));
+				customer.setTel(rs.getString("TEL"));
 				list.add(customer);
 			}
 		} finally {
@@ -108,7 +109,7 @@ public class CustomerSearchDBAccess {
 		List<Customer> list = new ArrayList<>();
 		Connection con = createConnection();
 		String query = """
-				SELECT CUSTID, CUSTNAME, KANA, ADDRESS
+				SELECT CUSTID, CUSTNAME, KANA, ADDRESS, TEL
 				FROM CUSTOMER
 				WHERE TEL = ? AND KANA LIKE ?
 				""";
@@ -123,6 +124,7 @@ public class CustomerSearchDBAccess {
 				customer.setCustName(rs.getString("CUSTNAME"));
 				customer.setKana(rs.getString("KANA"));
 				customer.setAddress(rs.getString("ADDRESS"));
+				customer.setTel(rs.getString("TEL"));
 				list.add(customer);
 			}
 		} finally {
