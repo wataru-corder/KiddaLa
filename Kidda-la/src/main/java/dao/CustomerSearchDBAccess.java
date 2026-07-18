@@ -16,6 +16,7 @@ public class CustomerSearchDBAccess {
 	 * @throws Exception
 	 */
 	private Connection createConnection() throws Exception {
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		String url = "jdbc:mysql://localhost:3306/KIDDA_LA";
 		String user = "user1";
 		String pass = "pass1";
