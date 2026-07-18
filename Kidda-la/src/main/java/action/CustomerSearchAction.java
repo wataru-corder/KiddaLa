@@ -1,6 +1,7 @@
 package action;
 
 import java.util.List;
+import java.util.Objects;
 
 import dao.CustomerSearchDBAccess;
 import model.Customer;
@@ -17,6 +18,14 @@ public class CustomerSearchAction {
 	 * @throws Exception
 	 */
 	public String[][] execute(String[] data) throws Exception {
+		
+		if (data.length < 2) {
+			throw new IllegalArgumentException("検索条件は[0]電話番号 [1]カナの2要素であること");
+		}
+		
+		Objects.requireNonNull(data[0], "電話番号がnull");
+		Objects.requireNonNull(data[1], "カナがnull");
+		
 		data[0] = data[0].replace(" ", "").replace("　", "");
 		data[1] = data[1].replace(" ", "").replace("　", "");
 
@@ -30,8 +39,11 @@ public class CustomerSearchAction {
 		} else {
 			list = dao.searchCustomer(data[0], data[1]);
 		}
-
-		String[][] tableData = OrderControlUtility.customerToArray(list);
+		
+		String[][] tableData = null;
+		if(!list.isEmpty()) {
+			tableData = OrderControlUtility.customerToArray(list);
+		}
 		return tableData;
 	}
 }
