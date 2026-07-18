@@ -77,11 +77,11 @@ public class CustomerSearchDBAccess {
 		String query = """
 				SELECT CUSTID, CUSTNAME, KANA, TEL, ADDRESS
 				FROM CUSTOMER
-				WHERE KANA = ?
+				WHERE KANA LIKE ?
 				""";
 		try {
 			PreparedStatement ps = con.prepareStatement(query);
-			ps.setString(1, kana);
+			ps.setString(1, "%" + kana + "%");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				Customer customer = new Customer();
