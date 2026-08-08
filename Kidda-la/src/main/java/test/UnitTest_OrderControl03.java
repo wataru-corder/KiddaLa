@@ -9,13 +9,13 @@ public class UnitTest_OrderControl03 {
 		CustomerSearchAction action = new CustomerSearchAction();
 		try {
 			// ===== 1/3 execute 項番1 =====
-			// 【正常系】引数("09012345678", "タナカタロウ")を指定する。
+			// 【正常系】引数("09012345678", "アオキマユミ")を指定する。
 			String[][] result1 = action.execute(new String[] {"09012345678", "アオキマユミ"});
 			System.out.println(result1.length);
 			System.out.println(result1[0][0]);
 
 			// ===== 1/3 execute 項番2 =====
-			// 【正常系】引数("", "タナカタロウ")を指定する。
+			// 【正常系】引数("", "アオキマユミ")を指定する。
 			System.out.println("----------------------------");
 			String[][] result2 = action.execute(new String[] {"", "アオキマユミ"});
 			System.out.println(result2.length);
@@ -30,9 +30,9 @@ public class UnitTest_OrderControl03 {
 
 			// ===== 2/3 execute 項番4 =====
 			// 【正常系】引数("00000000000", "ヤマモトユウスケ")を指定する。
-//			System.out.println("----------------------------");
-//			String[][] result4 = action.execute(new String[] {"00000000000", "ヤマモトユウスケ"});
-//			System.out.println(result4.length);
+			System.out.println("----------------------------");
+			String[][] result4 = action.execute(new String[] {"00000000000", "ヤマモトユウスケ"});
+			System.out.println(result4.length);
 
 			// ===== 2/3 execute 項番5 =====
 			// 【異常系】引数(null, null)を指定する。→ NullPointerException
