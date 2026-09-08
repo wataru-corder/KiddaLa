@@ -8,5 +8,9 @@
 </head>
 <body>
 
+<form action="KiddaLaController" method="POST">
+    <input type="hidden" name="command" value="CustomerSearchDisplay">
+    <input type="submit" value="注文管理">
+</form>
 </body>
 </html>
