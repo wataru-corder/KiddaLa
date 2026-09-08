@@ -56,7 +56,7 @@ public class KiddaLaController extends HttpServlet {
 				String[][] result = action.execute(data);
 
 				if (result != null) {
-					request.setAttribute("result", result);
+					request.getSession().setAttribute("customerData", result);
 				} else {
 					//該当なし（メッセージ012）
 					request.setAttribute("message", W012);

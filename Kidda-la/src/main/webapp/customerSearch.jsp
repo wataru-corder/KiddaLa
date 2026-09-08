@@ -13,30 +13,37 @@
 		<input type="hidden" name="command" value="CustomerSearch">
 		電話番号：<input type="text" name="tel"> 氏名カナ<input type="text"
 			name="kana"> <input type="submit" value="検索">
+		<input type="reset" value="入力消去">
+	</form>
+	<form action="KiddaLaController" method="POST">
+    	<input type="hidden" name="command" value="MainMenu">
+    	<input type="submit" value="戻る">
 	</form>
 
-	<%-- メッセージ表示（E011/W012/E013） --%>
-	<c:if test="${not empty message}">
-		<p>${message}</p>
-	</c:if>
 
-	<%-- 検索結果一覧 --%>
-	<c:if test="${not empty result}">
-		<table border="1">
-			<tr>
-				<th>顧客ID</th>
-				<th>氏名</th>
-				<th>カナ</th>
-				<th>住所</th>
-			</tr>
-			<c:forEach var="row" items="${result }">
-				<tr>
-					<c:forEach var="col" items="${row}">
-						<td>${col}</td>
+			<%-- メッセージ表示（E011/W012/E013） --%>
+			<c:if test="${not empty message}">
+				<p>${message}</p>
+			</c:if>
+
+			<%-- 検索結果一覧 --%>
+			<c:if test="${not empty customerData}">
+				<table border="1">
+					<tr>
+						<th>顧客ID</th>
+						<th>氏名</th>
+						<th>カナ</th>
+						<th>住所</th>
+						<th>電話番号</th>
+					</tr>
+					<c:forEach var="row" items="${customerData}">
+						<tr>
+							<c:forEach var="col" items="${row}">
+								<td>${col}</td>
+							</c:forEach>
+						</tr>
 					</c:forEach>
-				</tr>
-			</c:forEach>
-		</table>
-	</c:if>
+				</table>
+			</c:if>
 </body>
 </html>
