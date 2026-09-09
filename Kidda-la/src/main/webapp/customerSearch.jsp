@@ -28,8 +28,9 @@
 				<th>氏名</th>
 				<th>カナ</th>
 				<th>住所</th>
+				<th>電話番号</th>
 			</tr>
-			<c:forEach var="row" items="${result }">
+			<c:forEach var="row" items="${result}">
 				<tr>
 					<c:forEach var="col" items="${row}">
 						<td>${col}</td>
