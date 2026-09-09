@@ -1,9 +1,11 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  *  顧客情報を保持するモデルクラス
  */
-public class Customer {
+public class Customer implements Serializable{
 	// 顧客ID
 	private int custId;
 	// 顧客名
