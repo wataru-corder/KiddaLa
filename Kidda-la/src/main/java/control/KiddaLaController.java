@@ -30,7 +30,7 @@ public class KiddaLaController extends HttpServlet {
 
 		// commandの値がない場合はメインメニューに遷移する
 		if (command == null || command.isEmpty()) {
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("mainMenu.jsp").forward(request, response);
 			return;
 		}
 
@@ -68,9 +68,12 @@ public class KiddaLaController extends HttpServlet {
 				request.getRequestDispatcher("customerSearch.jsp").forward(request, response);
 			}
 			break;
+		case "MainMenu":
+			request.getRequestDispatcher("mainMenu.jsp").forward(request, response);
+			break;
 
 		default:
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("mainMenu.jsp").forward(request, response);
 			break;
 
 		}
