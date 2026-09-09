@@ -33,7 +33,9 @@ public class OrderControlUtility {
 						// カナ
 						customer.getKana(),
 						// 住所
-						customer.getAddress()
+						customer.getAddress(),
+						// 電話番号
+						customer.getTel()
 				};
 			}
 		}

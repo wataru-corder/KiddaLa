@@ -10,6 +10,9 @@ import java.util.List;
 import model.Customer;
 
 public class CustomerSearchDBAccess {
+	private static final String URL = "jdbc:mysql://localhost:3306/KIDDA_LA";
+	private static final String USER = "user1";
+	private static final String PASSWORD = "pass1";
 
 	/**
 	 * データベースと接続をする。
@@ -17,11 +20,7 @@ public class CustomerSearchDBAccess {
 	 */
 	private Connection createConnection() throws Exception {
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		String url = "jdbc:mysql://localhost:3306/KIDDA_LA";
-		String user = "user1";
-		String pass = "pass1";
-
-		Connection con = DriverManager.getConnection(url, user, pass);
+		Connection con = DriverManager.getConnection(URL, USER, PASSWORD);
 		return con;
 	}
 
@@ -30,7 +29,9 @@ public class CustomerSearchDBAccess {
 	 * @throws Exception
 	 */
 	private void closeConnection(Connection con) throws Exception {
-		con.close();
+		if (con != null) {
+			con.close();
+		}
 	}
 
 	/**
