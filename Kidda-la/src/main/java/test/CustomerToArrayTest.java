@@ -23,6 +23,7 @@ public class CustomerToArrayTest {
 		c.setCustId(1);
 		c.setCustName("山田太郎");
 		c.setKana("ヤマダタロウ");
+		c.setTel("09012345678");
 		c.setAddress("東京都北区");
 		list.add(c);
 
@@ -36,8 +37,10 @@ public class CustomerToArrayTest {
 		assertEquals("山田太郎", result[0][1]);
 		// 項番4:kana
 		assertEquals("ヤマダタロウ", result[0][2]);
-		// 項番5:address
-		assertEquals("東京都北区", result[0][3]);
+		// 項番5:tel
+		assertEquals("09012345678",result[0][3]);
+		// 項番6:address
+		assertEquals("東京都北区", result[0][4]);
 	}
 
 }

@@ -2,13 +2,14 @@ package control;
 
 import java.io.IOException;
 
-import action.CustomerSearchAction;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+import action.CustomerSearchAction;
 
 @WebServlet("/KiddaLaController")
 public class KiddaLaController extends HttpServlet {
@@ -46,6 +47,7 @@ public class KiddaLaController extends HttpServlet {
 				String kana = request.getParameter("kana");
 				// 入力チェック：両方未入力（メッセージ011）
 				if ((tel == null || tel.isEmpty()) && (kana == null || kana.isEmpty())) {
+					request.getSession().removeAttribute("customerData");
 					request.setAttribute("message", E011);
 					request.getRequestDispatcher("customerSearch.jsp").forward(request, response);
 					return;
@@ -59,11 +61,13 @@ public class KiddaLaController extends HttpServlet {
 					request.getSession().setAttribute("customerData", result);
 				} else {
 					//該当なし（メッセージ012）
+					request.getSession().removeAttribute("customerData");
 					request.setAttribute("message", W012);
 				}
 				request.getRequestDispatcher("customerSearch.jsp").forward(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
+				request.getSession().removeAttribute("customerData");
 				request.setAttribute("message", E013);
 				request.getRequestDispatcher("customerSearch.jsp").forward(request, response);
 			}

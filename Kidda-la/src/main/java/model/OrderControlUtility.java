@@ -32,10 +32,11 @@ public class OrderControlUtility {
 						customer.getCustName(),
 						// カナ
 						customer.getKana(),
-						// 住所
-						customer.getAddress(),
 						// 電話番号
-						customer.getTel()
+						customer.getTel(),
+						// 住所
+						customer.getAddress()
+						
 				};
 			}
 		}
